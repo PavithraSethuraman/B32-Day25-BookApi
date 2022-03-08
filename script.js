@@ -28,6 +28,7 @@ searchBox.setAttribute('type','text')
 searchBox.setAttribute('id','1')
 searchBox.setAttribute('placeholder','Type Number 1 to 1330')
 searchBox.setAttribute("onkeyup",'fun(searchBox.value)')
+searchBox.setAttribute("onkeypress",'typing()')
 searchBox.classList.add('container-fluid','mb-2')
 document.getElementById('searchDiv').appendChild(searchBox)
 
@@ -116,6 +117,21 @@ function fun(x){
     }
 else
 alert("please enter number between 1 - 1330")
+
+
+ }
+ function typing(){
+    let show = document.getElementById("searchBox");
+    if(event.charCode>=48 && event.charCode<=57 || event.key==="+" || event.key==="-" || event.key==="/" || event.key==="*"){
+       show.value += key;
+    }
+    else if(event.key==="Enter"){
+        equal();
+    }
+    else{
+     alert("type only numbers");
+      event.preventDefault();
+    }
     
 }
 
